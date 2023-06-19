@@ -18,13 +18,13 @@
 ## Install
 
 ```bash
-go get github.com/erfanmomeniii/queue
+go get github.com/erfanmomeniii/heap
 ```   
 
 Next, include it in your application:
 
 ```bash
-import "github.com/erfanmomeniii/queue"
+import "github.com/erfanmomeniii/heap"
 ``` 
 
 ## Quick Start
