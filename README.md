@@ -12,4 +12,77 @@
 </p>
 
 # heap
-<b>heap</b> is a lightweight package that provides binary min and max heap in Go.</br>
+heap is a lightweight package that provides binary min and max heap in Go.</br>
+
+# Documentation
+
+## Install
+
+```bash
+go get github.com/erfanmomeniii/queue
+```   
+
+Next, include it in your application:
+
+```bash
+import "github.com/erfanmomeniii/queue"
+``` 
+
+## Quick Start
+The following examples illustrates how to use this package for creating max and min binary heap tree:
+
+### MaxHeap
+```go
+package main
+
+import (
+	"fmt"
+	"github.com/erfanmomeniii/heap"
+)
+
+func main() {
+	h := heap.NewMax()
+
+	h.Insert(4)
+	h.Insert(12)
+	h.Insert(10)
+	
+	max,_:= h.GetMax()
+	fmt.Println(max)
+	// 12
+	
+	h.Delete()
+	
+	max,_=h.GetMax()
+	fmt.Println(max)
+	// 10
+}
+```
+
+### MinHeap 
+```go
+package main
+
+import (
+	"fmt"
+	"github.com/erfanmomeniii/heap"
+)
+
+func main() {
+	h := heap.NewMin()
+
+	h.Insert(4)
+	h.Insert(12)
+	h.Insert(10)
+	
+	min,_:= h.GetMin()
+	fmt.Println(min)
+	// 4
+	
+	h.Delete()
+	
+	min,_=h.GetMin()
+	fmt.Println(min)
+	// 10
+}
+```
