@@ -11,7 +11,7 @@
 </p>
 
 # heap
-heap is a lightweight package that provides binary min and max binary heap in Go.</br> for seeing usages check [this](https://pkg.go.dev/github.com/erfanmomeniii/heap).
+<i>heap</i> is a lightweight package that provides binary min and max binary heap in Go. for seeing usages check [this](https://pkg.go.dev/github.com/erfanmomeniii/heap).
 
 # Documentation
 
