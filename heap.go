@@ -96,20 +96,24 @@ func (h *MaxHeap) Insert(value int) {
 func (h *MinHeap) Delete() {
 	swap(h.tree.nodes[0], h.tree.nodes[len(h.tree.nodes)-1])
 	h.tree.nodes = h.tree.nodes[:len(h.tree.nodes)-1]
+
 	h.heapify(0)
 }
 
 func (h *MaxHeap) Delete() {
 	swap(h.tree.nodes[0], h.tree.nodes[len(h.tree.nodes)-1])
 	h.tree.nodes = h.tree.nodes[:len(h.tree.nodes)-1]
+
 	h.heapify(0)
 }
 
 func (h *MinHeap) heapify(index int) {
 	for {
 		current := h.tree.nodes[index]
+
 		left := leftChild(h.tree, index)
 		right := rightChild(h.tree, index)
+
 		if left == nil && right == nil {
 			break
 		} else if left == nil && right != nil {
@@ -143,8 +147,10 @@ func (h *MinHeap) heapify(index int) {
 func (h *MaxHeap) heapify(index int) {
 	for {
 		current := h.tree.nodes[index]
+
 		left := leftChild(h.tree, index)
 		right := rightChild(h.tree, index)
+
 		if left == nil && right == nil {
 			break
 		} else if left == nil && right != nil {
