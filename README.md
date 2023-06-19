@@ -1,4 +1,3 @@
-
 <p align="center">
 <img src="./assets/photos/logo.png" width=50% height=50%>
 </p>
@@ -12,7 +11,7 @@
 </p>
 
 # heap
-heap is a lightweight package that provides binary min and max heap in Go.</br>
+heap is a lightweight package that provides binary min and max binary heap in Go.</br>
 
 # Documentation
 
@@ -31,7 +30,7 @@ import "github.com/erfanmomeniii/queue"
 ## Quick Start
 The following examples illustrates how to use this package for creating max and min binary heap tree:
 
-### MaxHeap
+### Max heap
 ```go
 package main
 
@@ -59,7 +58,7 @@ func main() {
 }
 ```
 
-### MinHeap 
+### Min heap 
 ```go
 package main
 
@@ -86,3 +85,7 @@ func main() {
 	// 10
 }
 ```
+
+## Contributing
+Pull requests are welcome. For changes, please open an issue first to discuss what you would like to change.
+Please make sure to update tests as appropriate.
