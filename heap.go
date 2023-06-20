@@ -50,6 +50,16 @@ func rightChild(tree *tree, nodeIndex int) (*node, int) {
 	return tree.nodes[r], r
 }
 
+// findNodeWithAlias returns node object and corresponding index of a node that matches with the inputted alias.
+func findNodeWithAlias(tree *tree, alias any) (*node, int) {
+	for i, n := range tree.nodes {
+		if n.alias == alias {
+			return n, i
+		}
+	}
+	return nil, -1
+}
+
 // swap changes position of two node in the inputted tree.
 func swap(tree *tree, index1 int, index2 int) {
 	tree.nodes[index1], tree.nodes[index2] = tree.nodes[index2], tree.nodes[index1]
@@ -149,6 +159,66 @@ func (h *MaxHeap) Delete() {
 	h.tree.nodes = h.tree.nodes[:len(h.tree.nodes)-1]
 
 	h.heapify(0)
+}
+
+// Update change value of the specific node that matches with alias and heapify tree.
+func (h *MaxHeap) Update(alias any, value int) {
+	n, i := findNodeWithAlias(h.tree, alias)
+	if n == nil {
+		h.Insert(value, alias)
+
+		return
+	}
+
+	if value > n.value {
+		n.value = value
+		for {
+			p := parent(i)
+			if p == -1 {
+				break
+			}
+
+			if n.value > h.tree.nodes[p].value {
+				swap(h.tree, i, p)
+				i = p
+			} else {
+				break
+			}
+		}
+	} else {
+		n.value = value
+		h.heapify(i)
+	}
+}
+
+// Update change value of the specific node that matches with alias and heapify tree.
+func (h *MinHeap) Update(alias any, value int) {
+	n, i := findNodeWithAlias(h.tree, alias)
+	if n == nil {
+		h.Insert(value, alias)
+
+		return
+	}
+
+	if value < n.value {
+		n.value = value
+		for {
+			p := parent(i)
+			if p == -1 {
+				break
+			}
+
+			if n.value < h.tree.nodes[p].value {
+				swap(h.tree, i, p)
+				i = p
+			} else {
+				break
+			}
+		}
+	} else {
+		n.value = value
+		h.heapify(i)
+	}
 }
 
 // heapify rearranged the tree's nodes to maintain the heap.
