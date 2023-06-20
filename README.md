@@ -85,6 +85,35 @@ func main() {
 	// 10
 }
 ```
+We can also update the value of a heap node by using an alias. Here is an example:
+```go
+package main
+
+import (
+	"fmt"
+	"github.com/erfanmomeniii/heap"
+)
+
+func main() {
+	h := heap.NewMin()
+
+	h.Insert(4, "number 1")
+	h.Insert(12, "number 2")
+	h.Insert(10, "number 3")
+
+	m, a := h.GetMin()
+	fmt.Println(m,a)
+	// 4
+	// number 1
+
+	h.Update("number 1", 13)
+	
+	m, a = h.GetMin()
+	fmt.Println(m,a)
+	// 10
+	// number 3
+}
+```
 
 ## Contributing
 Pull requests are welcome. For changes, please open an issue first to discuss what you would like to change.
